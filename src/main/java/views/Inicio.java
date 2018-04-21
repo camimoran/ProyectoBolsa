@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
 import models.Accion;
 //import modelos.Persona;
@@ -51,6 +52,12 @@ public class Inicio extends javax.swing.JFrame {
         cc= new ClientsController();
         ac= new AccionsController();
         cliente=cli;
+        try {
+            apiTrader = new ApiTrader(/*"GAM.MC",*//*"POP.MC",*/"ABE.MC","ELE.MC","ANA.MC","MTS.MC","ITX.MC","REE.MC","DIA.MC","TEF.MC","SAN.MC","VIS.MC","IBE.MC","GAS.MC","MAP.MC","BKT.MC","ACS.MC","GRF.MC","MRL.MC",
+                    "ACX.MC","SAB.MC","AMS.MC","CABK.MC","FER.MC","BBVA.MC","ENG.MC","CLNX.MC","AENA.MC","TRE.MC","FCC.MC");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         initComponents();
         actualizarControles();
         this.setLocationRelativeTo(null);
@@ -132,6 +139,11 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Accept");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setText("%");
         jTextField1.setEnabled(false);
@@ -384,13 +396,13 @@ public class Inicio extends javax.swing.JFrame {
 
     //Actualiza el form cuando se selecciona una fila de la tabla de la API
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:             
+        // TODO add your handling code here:         
         int fila = jTable1.getSelectedRow();
-        String company = (String)jTable1.getModel().getValueAt(fila, 0);
-        BigDecimal price = (BigDecimal)jTable1.getModel().getValueAt(fila, 1);
+        String company = (String)jTable1.getModel().getValueAt(fila, 0); // SACA EL NOMBRE DE LA COMPANIA
+        BigDecimal price = (BigDecimal)jTable1.getModel().getValueAt(fila, 1); // SACA EL PRECIO DE LA ACCION EN 'MARKET'
         mostrarDatos(company,"1",price.toString(),"Market","Buy");
-        String idYahoo = apiTrader.getIdYahoo(company); // SACA EL ID DE LA EMPRESA DES DE LA LISTA TRAIDA DE LA API.
-        // (TODAVIA NO SE PARA QUE)
+        //String idYahoo = apiTrader.getIdYahoo(company); // SACA EL ID DE LA EMPRESA DES DE LA LISTA TRAIDA DE LA API.
+ 
     }//GEN-LAST:event_jTable1MouseClicked
 
     //Actualiza el form cuando se selecciona una fila de la tabla del usuario
@@ -400,23 +412,64 @@ public class Inicio extends javax.swing.JFrame {
         int fila = jTable2.getSelectedRow();
         String company = (String)jTable2.getModel().getValueAt(fila, 0);
         BigDecimal qua = new BigDecimal((String.valueOf(jTable2.getModel().getValueAt(fila, 2))));
-        // obtener price de la api
-        /*  BigDecimal price=new BigDecimal("2.0");*/
         BigDecimal price = apiTrader.getPriceByCompany(company);
-        mostrarDatos(company,String.valueOf(qua),String.valueOf(price.multiply(qua)),"Market","Sell");
+        mostrarDatos(company,String.valueOf(qua),String.valueOf(price.multiply(qua)),"Market","Sell");   
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         // TODO add your handling code here:
         //cuando se cambia manualmente la cntidad
         //MUltiplicar la cantidad por el precio de la accion actual
+        String company = jTextField2.getText();
+        BigDecimal qua = new BigDecimal(String.valueOf(jTextField3.getText()));
+        //BigDecimal qua = new BigDecimal(jTextField3.getText());
+        BigDecimal price = apiTrader.getPriceByCompany(company);
+        //NO TRAE EL PRECIO
+        jTextField8.setText(String.valueOf(price.multiply(qua)));
     }//GEN-LAST:event_jTextField3KeyReleased
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:        
+        String company = jTextField2.getText();
+        int quantity =  Integer.valueOf( ((String)jTextField3.getText()).equals("") ? "0" :(String)jTextField3.getText() );
+        
+        if(company.equals("") || quantity == 0 || jTextField3.getText().equals("") ){
+             showMessageDialog(null, "Debe completar Compania y Cantidad");
+        }
+        else{
+            BigDecimal price = apiTrader.getPriceByCompany(company);
+            //Todavia no se usa
+            //String priceType = (String)jComboBox2.getSelectedItem();//MARKET ,BELOW ,ABOVE
+            String transaction = (String)jComboBox1.getSelectedItem();//BUY, SELL
+            if(transaction.equals("Buy")){
+                //creo que price no tendria que ser int
+                ac.comprarAccion(cliente, company, price.intValue(), quantity);
+                
+            } else if(transaction.equals("Sell")){
+                //QUE ES SELLEDACTIOSQUANTITI
+                //ac.venderAccion(cliente, company, price.intValue(), quantity, selledActionsQuantity);
+            }
+            //VACIAR EL FOrm al comprar o vender?
+            vaciarForm();
+            actualizarControles();
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
     public void mostrarDatos(String company, String quantity, String total, String price, String transaction){
         jTextField2.setText(company);
         jTextField3.setText(quantity);
         jTextField8.setText(total);
         jComboBox2.setSelectedItem(price);
         jComboBox1.setSelectedItem(transaction);
+    }
+    
+    public void vaciarForm(){
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField8.setText("");
+        jComboBox1.setSelectedItem("Buy");
+        jComboBox2.setSelectedItem("Market");
     }
     /**
      * @param args the command line arguments

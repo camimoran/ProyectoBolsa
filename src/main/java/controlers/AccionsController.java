@@ -32,7 +32,7 @@ public class AccionsController {
 
     // AGREGAR ACCION.
     public void comprarAccion(String codClient, String company, int price, int quantity){
-
+       
         // busca las acciones del cliente
         List<Accion> list = this.traerAccionesCliente(codClient);
         Accion a = new Accion(company,price,quantity);
@@ -41,9 +41,9 @@ public class AccionsController {
         // accion obtendra una cantidad actualizada si existe una accion identica en la cartera del cliente.
         Accion accion = searchIfActionExists(list,a);
         if(accion == null){
-            dao.modifyAction(accion);
+            dao.addAction(a,codClient);
         }else{
-            dao.addAction(accion,codClient);
+            dao.modifyAction(accion);
         }
     }
 
@@ -51,9 +51,10 @@ public class AccionsController {
     //  si existe retorna la accion con la cantidad actualizada , sino devuelve null
     private Accion searchIfActionExists(List<Accion> clientActions , Accion action){
         for (Accion a: clientActions) {
-            if ((a.getCompany() == action.getCompany())&&(a.getPrice() == action.getPrice())){
+            if ((a.getCompany().equals(action.getCompany()))&&(a.getPrice() == action.getPrice())){
                 int newQuantity = action.getQuantity() + a.getQuantity();
                 action.setQuantity(newQuantity);
+                action.setId(a.getId());
                 return action;
             }
         }

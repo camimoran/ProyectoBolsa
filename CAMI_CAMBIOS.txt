@@ -1,0 +1,19 @@
+Accion
+agrege setId()
+
+AccionsConroller
+comprarAccion -> cambie el add y modify de lugar | En addACcion le paso variable "a" en ves de accion.
+searchIfActionExists -> le puse equals en ves de == | Le sete la id a la accion porque sino no se la pasa al dao
+
+DaoAcciones
+modifyAction -> agrege el ps.executeUpdate 
+
+Inicio
+agrege la iniciacion del apiTrader al public Inicio(String cli)
+jTable1MouseClicked(creo que ahi no nesesitamos el idYahoo o nose para que era jajaj)
+jTextField3KeyReleased(agrge lo que se cambie el total cuando modifica la cant, pero no me trae el precio de la accion)
+jButton2ActionPerformed(BOTON CLICK) , vaciar el form al vender y comprar ?
+
+
+BD
+puse idAccion como primary y auoincrement

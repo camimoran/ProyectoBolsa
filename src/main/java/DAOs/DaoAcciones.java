@@ -79,6 +79,7 @@ public class DaoAcciones {
             PreparedStatement ps = con.conn.prepareStatement(query);
             ps.setInt(1,c.getQuantity());
             ps.setInt(2,c.getId());
+            ps.executeUpdate();
         }catch (SQLException e){
             System.err.println(e.getMessage());
         }finally{
