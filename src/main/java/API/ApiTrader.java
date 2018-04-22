@@ -57,10 +57,10 @@ public class ApiTrader {
         }
         return "";
     }
-
+    
     public BigDecimal getPriceByCompany(String company){
         for(Stock stock : this.getMyExchanges()){
-            if(stock.getName() == company){
+            if(stock.getName().equals(company)){
                 return stock.getQuote().getPrice();
             }
         }
