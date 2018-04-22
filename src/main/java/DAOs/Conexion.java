@@ -24,8 +24,8 @@ public class Conexion {
     
     public Conexion() throws ClassNotFoundException{
             // db parameters
-            //url = "jdbc:sqlite:C:/Users/Yo/Downloads/Facundo/TRABAJO/DESARROLLO DE SOFTWARE/PROYECTOS/2018/ProyectoBolsa/ProyectoBolsaDB.db";
-            url = "jdbc:sqlite:C:/Users/kamii/Desktop/ProyectoBolsa/ProyectoBolsaDB.db";
+            url = "jdbc:sqlite:C:/Users/Yo/Desktop/ProyectoBolsa/ProyectoBolsaDB.db";
+            //url = "jdbc:sqlite:C:/Users/kamii/Desktop/ProyectoBolsa/ProyectoBolsaDB.db";
     }
     
     public void connect() {
