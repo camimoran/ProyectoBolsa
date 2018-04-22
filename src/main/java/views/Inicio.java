@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
 import models.Accion;
@@ -421,11 +422,11 @@ public class Inicio extends javax.swing.JFrame {
         //cuando se cambia manualmente la cntidad
         //MUltiplicar la cantidad por el precio de la accion actual
         String company = jTextField2.getText();
-        BigDecimal qua = new BigDecimal(String.valueOf(jTextField3.getText()));
-        //BigDecimal qua = new BigDecimal(jTextField3.getText());
+        //BigDecimal qua = new BigDecimal(String.valueOf(jTextField3.getText()));
+        int quantity =  Integer.valueOf(((String)jTextField3.getText()).equals("") ? "0" :(String)jTextField3.getText() );
         BigDecimal price = apiTrader.getPriceByCompany(company);
         //NO TRAE EL PRECIO
-        jTextField8.setText(String.valueOf(price.multiply(qua)));
+        jTextField8.setText(String.valueOf(price.multiply(new BigDecimal(quantity))));
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -438,23 +439,27 @@ public class Inicio extends javax.swing.JFrame {
         }
         else{
             BigDecimal price = apiTrader.getPriceByCompany(company);
-            //Todavia no se usa
-            //String priceType = (String)jComboBox2.getSelectedItem();//MARKET ,BELOW ,ABOVE
+            //Todavia no se usa String priceType = (String)jComboBox2.getSelectedItem();//MARKET ,BELOW ,ABOVE
             String transaction = (String)jComboBox1.getSelectedItem();//BUY, SELL
-            if(transaction.equals("Buy")){
-                //creo que price no tendria que ser int
-                ac.comprarAccion(cliente, company, price.intValue(), quantity);
-                
-            } else if(transaction.equals("Sell")){
-                //QUE ES SELLEDACTIOSQUANTITI
-                //ac.venderAccion(cliente, company, price.intValue(), quantity, selledActionsQuantity);
+            if(mensajeConfirmacion(transaction, company, price, quantity)){
+                if(transaction.equals("Buy")){
+                   ac.comprarAccion(cliente, company, price.intValue(), quantity);
+                } else if(transaction.equals("Sell")){
+                    //QUE ES SELLEDACTIOSQUANTITI
+                    //ac.venderAccion(cliente, company, price.intValue(), quantity, selledActionsQuantity);
+                }
             }
             //VACIAR EL FOrm al comprar o vender?
             vaciarForm();
             actualizarControles();
-        }
-        
+        }        
     }//GEN-LAST:event_jButton2ActionPerformed
+    
+    public boolean mensajeConfirmacion(String transaction, String company,BigDecimal price, int quantity){
+        return(JOptionPane.showConfirmDialog(null,"¿Confirma la siguiente "+(transaction.equals("Buy")?"Compra":"Venta")+"?\n\n"+
+                " | Company: "+company+"\n | Price: $"+price+ "\n | Quantity: "+quantity+"\n | Total: $"+jTextField8.getText()    
+                        , "", JOptionPane.YES_NO_OPTION)==0); 
+    }
     
     public void mostrarDatos(String company, String quantity, String total, String price, String transaction){
         jTextField2.setText(company);
