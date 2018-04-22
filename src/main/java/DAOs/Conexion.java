@@ -32,9 +32,9 @@ public class Conexion {
         try {
             // create a connection to the database
             conn = DriverManager.getConnection(url);            
-            if (conn!=null){
-                System.out.println("Connection to SQLite has been established.");
-            }
+            //if (conn!=null){
+            //    System.out.println("Connection to SQLite has been established.");
+            //}
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }  
