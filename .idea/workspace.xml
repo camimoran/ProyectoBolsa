@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cac9082-5180-45f2-a3e9-0c93a6e9ebf3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProyectoBolsaDB.db" afterPath="$PROJECT_DIR$/ProyectoBolsaDB.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/API/ApiTrader.class" afterPath="$PROJECT_DIR$/target/classes/API/ApiTrader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAOs/Conexion.class" afterPath="$PROJECT_DIR$/target/classes/DAOs/Conexion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DAOs/DaoAcciones.class" afterPath="$PROJECT_DIR$/target/classes/DAOs/DaoAcciones.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controlers/AccionsController.class" afterPath="$PROJECT_DIR$/target/classes/controlers/AccionsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/views/Inicio$7.class" afterPath="$PROJECT_DIR$/target/classes/views/Inicio$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/views/Inicio.class" afterPath="$PROJECT_DIR$/target/classes/views/Inicio.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/views/Login$6.class" afterPath="$PROJECT_DIR$/target/classes/views/Login$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/views/Login.class" afterPath="$PROJECT_DIR$/target/classes/views/Login.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/DAOs/Conexion.java" afterPath="$PROJECT_DIR$/src/main/java/DAOs/Conexion.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,25 +35,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiTrader.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiTrader.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/API/ApiTrader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-              <folding>
-                <element signature="e#1385#1386#0" expanded="true" />
-                <element signature="e#1419#1420#0" expanded="true" />
-                <marker date="1524361759452" expanded="true" signature="1726:1943" ph="{...}" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Conexion.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Conexion.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/Conexion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+            <state relative-caret-position="391">
+              <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -72,23 +58,9 @@
       <file leaf-file-name="Inicio.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/views/Inicio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="399" column="44" lean-forward="false" selection-start-line="399" selection-start-column="44" selection-end-line="399" selection-end-column="44" />
-              <folding>
-                <marker date="1524361759477" expanded="true" signature="25478:25690" ph="{...}" />
-                <marker date="1524361759477" expanded="true" signature="25724:25919" ph="{...}" />
-                <marker date="1524361759477" expanded="true" signature="25924:25981" ph="/**...*/" />
-                <marker date="1524361759477" expanded="true" signature="26025:27699" ph="{...}" />
-                <marker date="1524361759477" expanded="false" signature="26078:27413" ph="Look and feel setting code (optional)" />
-                <marker date="1524361759477" expanded="true" signature="27587:27691" ph="{...}" />
-                <marker date="1524361759477" expanded="false" signature="27618:27637" ph=" { " />
-                <marker date="1524361759477" expanded="false" signature="27667:27681" ph=" }" />
-                <marker date="1524361759477" expanded="true" signature="27738:27841" ph="{...}" />
-                <marker date="1524361759477" expanded="true" signature="27847:28064" ph="//..." />
-                <marker date="1524361759477" expanded="true" signature="28097:28807" ph="{...}" />
-                <marker date="1524361759477" expanded="true" signature="28904:29705" ph="{...}" />
-                <marker date="1524361759477" expanded="true" signature="29756:29973" ph="//..." />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,7 +78,7 @@
       <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/views/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2210">
+            <state relative-caret-position="476">
               <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
               <folding />
             </state>
@@ -170,6 +142,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -314,8 +288,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -581,38 +553,38 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0011148272" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0011148272" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15884861" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="UML design tool window" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -649,13 +621,177 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/API/ApiTrader.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/Inicio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6783">
+          <caret line="399" column="44" lean-forward="false" selection-start-line="399" selection-start-column="44" selection-end-line="399" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controlers/ClientsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/Conexion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Accion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/DaoClientes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/API/ApiTrader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/Inicio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6783">
+          <caret line="399" column="44" lean-forward="false" selection-start-line="399" selection-start-column="44" selection-end-line="399" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controlers/ClientsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/Conexion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Accion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/DaoClientes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/API/ApiTrader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/Inicio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6783">
+          <caret line="399" column="44" lean-forward="false" selection-start-line="399" selection-start-column="44" selection-end-line="399" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controlers/ClientsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/Conexion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Accion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/DaoClientes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/API/ApiTrader.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="67" column="5" lean-forward="false" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-          <folding>
-            <element signature="e#1385#1386#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-            <marker date="1524361759452" expanded="true" signature="1726:1943" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -687,21 +823,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="398" column="44" lean-forward="true" selection-start-line="398" selection-start-column="44" selection-end-line="398" selection-end-column="44" />
-          <folding>
-            <marker date="1524361759477" expanded="true" signature="25478:25690" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="25724:25919" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="25924:25981" ph="/**...*/" />
-            <marker date="1524361759477" expanded="true" signature="26025:27699" ph="{...}" />
-            <marker date="1524361759477" expanded="false" signature="26078:27413" ph="Look and feel setting code (optional)" />
-            <marker date="1524361759477" expanded="true" signature="27587:27691" ph="{...}" />
-            <marker date="1524361759477" expanded="false" signature="27618:27637" ph=" { " />
-            <marker date="1524361759477" expanded="false" signature="27667:27681" ph=" }" />
-            <marker date="1524361759477" expanded="true" signature="27738:27841" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="27847:28064" ph="//..." />
-            <marker date="1524361759477" expanded="true" signature="28097:28807" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="28904:29705" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="29756:29973" ph="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -725,21 +847,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="392" column="18" lean-forward="false" selection-start-line="392" selection-start-column="18" selection-end-line="392" selection-end-column="18" />
-          <folding>
-            <marker date="1524361759477" expanded="true" signature="25478:25690" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="25724:25919" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="25924:25981" ph="/**...*/" />
-            <marker date="1524361759477" expanded="true" signature="26025:27699" ph="{...}" />
-            <marker date="1524361759477" expanded="false" signature="26078:27413" ph="Look and feel setting code (optional)" />
-            <marker date="1524361759477" expanded="true" signature="27587:27691" ph="{...}" />
-            <marker date="1524361759477" expanded="false" signature="27618:27637" ph=" { " />
-            <marker date="1524361759477" expanded="false" signature="27667:27681" ph=" }" />
-            <marker date="1524361759477" expanded="true" signature="27738:27841" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="27847:28064" ph="//..." />
-            <marker date="1524361759477" expanded="true" signature="28097:28807" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="28904:29705" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="29756:29973" ph="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -795,21 +903,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
           <caret line="392" column="18" lean-forward="true" selection-start-line="392" selection-start-column="18" selection-end-line="392" selection-end-column="18" />
-          <folding>
-            <marker date="1524361759477" expanded="true" signature="25478:25690" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="25724:25919" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="25924:25981" ph="/**...*/" />
-            <marker date="1524361759477" expanded="true" signature="26025:27699" ph="{...}" />
-            <marker date="1524361759477" expanded="false" signature="26078:27413" ph="Look and feel setting code (optional)" />
-            <marker date="1524361759477" expanded="true" signature="27587:27691" ph="{...}" />
-            <marker date="1524361759477" expanded="false" signature="27618:27637" ph=" { " />
-            <marker date="1524361759477" expanded="false" signature="27667:27681" ph=" }" />
-            <marker date="1524361759477" expanded="true" signature="27738:27841" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="27847:28064" ph="//..." />
-            <marker date="1524361759477" expanded="true" signature="28097:28807" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="28904:29705" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="29756:29973" ph="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -847,7 +941,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/views/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2210">
+        <state relative-caret-position="476">
           <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
           <folding />
         </state>
@@ -877,44 +971,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/API/ApiTrader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/Conexion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-          <folding>
-            <element signature="e#1385#1386#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-            <marker date="1524361759452" expanded="true" signature="1726:1943" ph="{...}" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/views/Inicio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="399" column="44" lean-forward="false" selection-start-line="399" selection-start-column="44" selection-end-line="399" selection-end-column="44" />
-          <folding>
-            <marker date="1524361759477" expanded="true" signature="25478:25690" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="25724:25919" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="25924:25981" ph="/**...*/" />
-            <marker date="1524361759477" expanded="true" signature="26025:27699" ph="{...}" />
-            <marker date="1524361759477" expanded="false" signature="26078:27413" ph="Look and feel setting code (optional)" />
-            <marker date="1524361759477" expanded="true" signature="27587:27691" ph="{...}" />
-            <marker date="1524361759477" expanded="false" signature="27618:27637" ph=" { " />
-            <marker date="1524361759477" expanded="false" signature="27667:27681" ph=" }" />
-            <marker date="1524361759477" expanded="true" signature="27738:27841" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="27847:28064" ph="//..." />
-            <marker date="1524361759477" expanded="true" signature="28097:28807" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="28904:29705" ph="{...}" />
-            <marker date="1524361759477" expanded="true" signature="29756:29973" ph="//..." />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/Conexion.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/API/ApiTrader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state relative-caret-position="119">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
           <folding />
         </state>
       </provider>
