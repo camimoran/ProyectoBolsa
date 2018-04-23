@@ -442,6 +442,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 
     //ONCLICK TABLA API
     private void jTable1MouseKeyReleased(java.awt.event.MouseEvent evt) {
+        jTable2.getSelectionModel().clearSelection();
         int fila = jTable1.getSelectedRow(); // FILA
         String company = (String)jTable1.getModel().getValueAt(fila, 0); // NOMBRE
         BigDecimal price = (BigDecimal)jTable1.getModel().getValueAt(fila, 1); // PRECIO
@@ -452,6 +453,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
     //ONCLICK TABLA CLIENTE
     //FAlta obtener price de la api
     private void jTable2MouseKeyReleased(java.awt.event.MouseEvent evt) {
+        jTable1.getSelectionModel().clearSelection();
         int fila = jTable2.getSelectedRow();
         String company = (String)jTable2.getModel().getValueAt(fila, 0);
         BigDecimal qua = new BigDecimal((String.valueOf(jTable2.getModel().getValueAt(fila, 2))));
@@ -475,7 +477,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         String company = jTextField2.getText();
         int quantity =  Integer.valueOf( ((String)jTextField3.getText()).equals("") ? "0" :(String)jTextField3.getText());
 
-        if(company.equals("") || quantity == 0 || jTextField3.getText().equals("") ){
+        if(company.equals("") || quantity <= 0 || jTextField3.getText().equals("") ){
              showMessageDialog(null, "Debe completar Compania y Cantidad");
         }
         else{
@@ -487,14 +489,10 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 
 
                     // ACA ES DONDE REDONDEA EL PRECIO DE LAS ACCIONES , CAMBIAR A BIGDECIMAL EL ATRIBUTO PRICE Y HACER QUE LA TABLA LO ACEPTE.
-                   ac.comprarAccion(cliente, company, price.intValue(), quantity);
-
-
-
+                   ac.comprarAccion(cliente, company, price.floatValue(),quantity);
                 } else if(transaction.equals("Sell")){
                     quantity = quantity * -1; // YO NO PUEDO CREER LA MARAVILLA QUE ACABO DE HACER EN UNA LINEA.
-                    ac.comprarAccion(cliente, company, price.intValue(), quantity);
-
+                    ac.comprarAccion(cliente, company, price.floatValue(), quantity);
                 }
             }
             //VACIAR EL FOrm al comprar o vender?
@@ -580,7 +578,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         List<Stock> acciones = apiTrader.getMyExchanges();
         jTable1.getTableHeader().setReorderingAllowed(false);
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(acciones.size()+1);
+        model.setRowCount(acciones.size());
         int fila = 0;
         for(Stock s:acciones){
             jTable1.getModel().setValueAt(s.getName(), fila, 0);
@@ -598,7 +596,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
             List<Accion> accionesCliente = ac.traerAccionesCliente(cliente);
             jTable2.getTableHeader().setReorderingAllowed(false);
             DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-            model.setRowCount(accionesCliente.size()+1);
+            model.setRowCount(accionesCliente.size());
             int fila = 0;
             for(Accion a:accionesCliente){
                 jTable2.getModel().setValueAt(a.getCompany(), fila, 0);

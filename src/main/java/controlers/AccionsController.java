@@ -32,7 +32,7 @@ public class AccionsController {
     }
 
     // AGREGAR ACCION.
-    public void comprarAccion(String codClient, String company, int price, int quantity){
+    public void comprarAccion(String codClient, String company, float price, int quantity){
 
         // busca las acciones del cliente
         List<Accion> list = this.traerAccionesCliente(codClient);
