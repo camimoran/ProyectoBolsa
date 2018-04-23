@@ -8,10 +8,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 /**
  * Created by Yo on 6/4/2018.
  */
-public class ApiTrader {
+public class ApiTrader{
 
     private List<Stock> myExchanges = new ArrayList<Stock>();
 
@@ -66,4 +68,6 @@ public class ApiTrader {
         }
         return new BigDecimal(00);
     }
+
+
 }

@@ -1,0 +1,6 @@
+Refresh Tabla Api
+Algunos Bugs
+Comentarios en Inicio
+Documentado el Bug de redondeo de Precio ()
+Vender Accion
+Hay fallos en venta y compra (necesario cambiar el tipo de la tabla por BigDecimal)

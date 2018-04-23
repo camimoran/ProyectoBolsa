@@ -45,6 +45,7 @@ public class DaoAcciones {
                  Accion acc = crearConResult(result);
                  lista.add(acc);
              }
+             this.delteNoQuantityAccions();
          } catch (SQLException e) {    
              System.err.println(e.getMessage());
          }
@@ -61,7 +62,7 @@ public class DaoAcciones {
             PreparedStatement ps = con.conn.prepareStatement(query);
             ps.setString(1, codClient);
             ps.setString(2, c.getCompany());
-            ps.setFloat(3,c.getPrice());
+            ps.setFloat(3,c.getPrice()); // CONVERTIR A BIG DECIMAL.
             ps.setFloat(4,c.getQuantity());
             ps.executeUpdate();
         }catch (SQLException e){
@@ -71,7 +72,6 @@ public class DaoAcciones {
         }
     }
 
-    // El id de Acciones tiene que traer todos los datos. (en este caso falta Id de la bdd para indicar donde va el update).
     public void modifyAction(Accion c) {
         String query = "UPDATE Acciones SET quantity = ? WHERE idAccion = ?";
         Conexion con = getConection();
@@ -85,16 +85,29 @@ public class DaoAcciones {
         }finally{
             con.close();
         }
-
+        this.delteNoQuantityAccions();
     }
     
     private Accion crearConResult(ResultSet result) throws SQLException{
         Accion acc = new Accion(result.getInt("idAccion"), 
-                result.getString("company"), 
-                result.getFloat("price"), 
+                result.getString("company"),
+                result.getFloat("price"),  // CONVERTIR A BIG DECIMAL.
                 result.getInt("quantity"));
-               
         return acc;
+    }
+
+    private void delteNoQuantityAccions(){
+        String query = "DELETE FROM Acciones WHERE quantity <= ?";
+        Conexion con = getConection();
+        try {
+            PreparedStatement ps = con.conn.prepareStatement(query);
+            ps.setInt(1,0);
+            ps.executeUpdate();
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }finally{
+            con.close();
+        }
     }
 
 }

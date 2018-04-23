@@ -1,5 +1,0 @@
--Le cambie el string de coneccion (el tuyo esta comentado).
--Agregue campo " cantidad " a la clase y tabla de acciones.
--El select all de acciones tiene que traer todo.
--El modificar de acciones no va a andar porque necesita el id de la accion para
-saber donde updatear.

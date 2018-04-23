@@ -19,20 +19,20 @@ public class Accion {
     public Accion(){
         id = 0;
         company = "";
-        price = 0;
+        price = 0; // CONVERTIR A BIG DECIMAL.
         quantity = 0;
     }
     
     public Accion(int i, String com, float pri, int qua){
         id = i;
         company = com;
-        price = pri;
+        price = pri; // CONVERTIR A BIG DECIMAL.
         quantity = qua;
     }
 
     public Accion(String company,float price,int quantity){
         this.company = company;
-        this.price = price;
+        this.price = price; // CONVERTIR A BIG DECIMAL.
         this.quantity = quantity;
     }
 
@@ -55,14 +55,14 @@ public class Accion {
      */
     public float getPrice() {
         return price;
-    }
+    } // CONVERTIR A BIG DECIMAL.
 
     /**
      * @param price the price to set
      */
     public void setPrice(float price) {
         this.price = price;
-    }
+    } // CONVERTIR A BIG DECIMAL.
 
     public int getQuantity() {
         return quantity;

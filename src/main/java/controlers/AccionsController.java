@@ -26,13 +26,14 @@ public class AccionsController {
             System.out.println(e.getMessage());
         }
         finally{
+            System.out.println("size: " + lista.size());
             return lista;
         }
     }
 
     // AGREGAR ACCION.
     public void comprarAccion(String codClient, String company, int price, int quantity){
-       
+
         // busca las acciones del cliente
         List<Accion> list = this.traerAccionesCliente(codClient);
         Accion a = new Accion(company,price,quantity);
@@ -59,11 +60,6 @@ public class AccionsController {
             }
         }
         return null;
-    }
-
-    public void venderAccion(String codClient, String company, int price, int quantity, int selledActionsQuantity){
-        quantity = quantity - selledActionsQuantity;
-        dao.modifyAction(new Accion(company,price,quantity));
     }
 
 }
