@@ -52,7 +52,8 @@ public class AccionsController {
     //  si existe retorna la accion con la cantidad actualizada , sino devuelve null
     private Accion searchIfActionExists(List<Accion> clientActions , Accion action){
         for (Accion a: clientActions) {
-            if ((a.getCompany().equals(action.getCompany()))&&(a.getPrice() == action.getPrice())){
+            if ((a.getCompany().equals(action.getCompany())) && 
+                    ((a.getPrice() == action.getPrice()) || action.getQuantity()<0 )){
                 int newQuantity = action.getQuantity() + a.getQuantity();
                 action.setQuantity(newQuantity);
                 action.setId(a.getId());

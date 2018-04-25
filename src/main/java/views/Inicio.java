@@ -13,7 +13,6 @@ import controlers.ClientsController;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -34,7 +33,6 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
     //..................................................................................................................
 
     // CONTROLADORAS
-    private ClientsController cc;
     private AccionsController ac;
 
     // CLIENTE ID
@@ -60,7 +58,6 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
     // CONSTRUCTOR POR DEFECTO
     public Inicio() {
 
-        cc= new ClientsController();
         ac= new AccionsController();
         cliente="cami";
         try {
@@ -83,7 +80,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 
     // CONSTRUCTOR POR PARAMETRO.
     public Inicio(String cli) {
-        cc= new ClientsController();
+        
         ac= new AccionsController();
         cliente=cli;
         try {
@@ -495,8 +492,8 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
                     ac.comprarAccion(cliente, company, price.floatValue(), quantity);
                 }
             }
-            //VACIAR EL FOrm al comprar o vender?
-            vaciarForm();
+            //VACIAR EL FORM = MOSTRAR DATOS VACIOS al comprar o vender?
+            mostrarDatos("","","","Buy","Market");
             actualizarControles();
         }        
     }
@@ -518,15 +515,6 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         jComboBox2.setSelectedItem(price);
         jComboBox1.setSelectedItem(transaction);
     }
-    
-    public void vaciarForm(){
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField8.setText("");
-        jComboBox1.setSelectedItem("Buy");
-        jComboBox2.setSelectedItem("Market");
-    }
-
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -614,7 +602,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
     // FIN SETTERS DE LAS TABLAS *****************************************************************************
     //********************************************************************************************************
     
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;

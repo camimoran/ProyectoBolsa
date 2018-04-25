@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 
 /**
  *
- * @author kamii
+ * @author 
  */
 public class Login extends javax.swing.JFrame {
 
