@@ -6,6 +6,7 @@
 package controlers;
 
 import DAOs.DaoAcciones;
+import DAOs.DaoOfertas;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +19,10 @@ import models.Accion;
  */
 public class AccionsController {
     DaoAcciones dao = new DaoAcciones();
+    DaoOfertas daoOf = new DaoOfertas();
        
-    public int traerCantAccion (String codClient,String company,BigDecimal price){
-        return dao.traerCantAccion(codClient, company, price);
+    public Accion traerAccion (String codClient,String company,BigDecimal price){
+        return dao.traerAccion(codClient, company, price);
     }
             
     public List<Accion> traerAccionesCliente(String codCient){
@@ -36,17 +38,24 @@ public class AccionsController {
     }
 
     // AGREGAR ACCION.
-    public void comprarAccion(String codClient, String company, BigDecimal price, int quantity){
+    public void comprarAccion(String codClient, String company, BigDecimal price, int quantity,BigDecimal stopLoss){
         // busca las acciones del cliente
         List<Accion> list = this.traerAccionesCliente(codClient);
         Accion a = new Accion(company,price,quantity);
-
+        
         // accion obtendra null si no existe una accion con un precio y compania igual en la cartera del cliente
         // accion obtendra una cantidad actualizada si existe una accion identica en la cartera del cliente.
         Accion accion = searchIfActionExists(list,a);
         if(accion == null){
-            dao.addAction(a,codClient);
+            dao.addAction(a,codClient);            
+            if(stopLoss != null){
+                daoOf.addOffer((traerAccion(codClient, company, price)).getId(), null, stopLoss);
+            }
         }else{
+            //SE TIENE QUE AGREGAR A OFERTA CON EL ID DE ACCION,y CANTIDADES, 
+            //Y SI ES VENTA QUANT ES NEGATIVO, PERO QUE PASA CON LA TABLA OFERTA ESTA RELACIONADA A LA
+            // ACCIONES, QUE YA NO VAN A TENER LAS CANTIDAD QUE SE PONE EN EL TEXT,Y EN LA VENTA NO VA A 
+            // ENCONTRAR L ACCION SI SE VENDIO , CREO QUE HAY QUE PONER LOS DATOS EN LA TABLA OFERTA
             dao.modifyAction(accion);
         }
     }

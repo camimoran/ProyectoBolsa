@@ -33,11 +33,11 @@ public class DaoAcciones {
         return con;
     }
     
-    public int traerCantAccion(String codClient,String company,BigDecimal price){
-        String query = "SELECT quantity FROM Acciones WHERE codClient = ? AND company = ? AND price = ?";
+    public Accion traerAccion(String codClient,String company,BigDecimal price){
+        String query = "SELECT * FROM Acciones WHERE codClient = ? AND company = ? AND price = ?";
         System.out.println("DAO"+codClient+company+price);
                     
-        int qua = 0;
+        Accion a = new Accion();
         Conexion con = getConection();
         ResultSet result = null;
          try {
@@ -46,8 +46,11 @@ public class DaoAcciones {
              ps.setString(2, company);
              ps.setBigDecimal(3, price);
              result = ps.executeQuery();
-             while(result.next()){
-                 qua = result.getInt("quantity");
+             while(result.next()){ 
+                 a.setId(result.getInt("idAccion"));
+                 a.setCompany(result.getString("company"));
+                 a.setPrice(result.getBigDecimal("price"));
+                 a.setQuantity(result.getInt("quantity"));
              }
              this.delteNoQuantityAccions();
          } catch (SQLException e) {    
@@ -55,7 +58,7 @@ public class DaoAcciones {
          }
          finally{
             con.close();
-            return qua; 
+            return a; 
          }
     } 
     

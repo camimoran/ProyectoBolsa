@@ -6,7 +6,6 @@
 package views;
 
 import yahoofinance.Stock;
-//import DAO.Conexion;
 import API.ApiTrader;
 import controlers.AccionsController;
 import java.io.IOException;
@@ -18,7 +17,6 @@ import static java.lang.Thread.sleep;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
 import models.Accion;
-//import modelos.Persona;
 
 /**
  *
@@ -77,7 +75,9 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 
     // CONSTRUCTOR POR PARAMETRO.
     public Inicio(String cli) {
-        
+        //jTextField9.enable();
+        //jTextField11.enable();
+        //jTextField1.enable();
         ac= new AccionsController();
         cliente=cli;
         try {
@@ -88,6 +88,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         }
 
         initComponents(); // GUI INIT
+        jTextField10.enable();
         actualizarControles();
         this.setLocationRelativeTo(null);
         setResizable(false);
@@ -478,14 +479,17 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
             //Todavia no se usa String priceType = (String)jComboBox2.getSelectedItem();//MARKET ,BELOW ,ABOVE
             String transaction = (String)jComboBox1.getSelectedItem();//BUY, SELL
             if(mensajeConfirmacion(transaction, company, price, quantity)){
+                BigDecimal stopLoss = ((String)jTextField10.getText()).equals("") ? null :new BigDecimal((String)jTextField10.getText());
+
                 if(transaction.equals("Buy")){
                     // ACA ES DONDE REDONDEA EL PRECIO DE LAS ACCIONES , CAMBIAR A BIGDECIMAL EL ATRIBUTO PRICE Y HACER QUE LA TABLA LO ACEPTE.
-                   ac.comprarAccion(cliente, company, price,quantity);
+                    //QU PASA SI QUIERO VENDER UNA ACCION QUE COMPRE CON STOPLOSS?PUEDO?
+                    ac.comprarAccion(cliente, company, price,quantity,stopLoss);
                 } else if(transaction.equals("Sell")){
                     price = new BigDecimal((String.valueOf(jTable2.getModel().getValueAt(jTable2.getSelectedRow(), 1))));
-                    if(quantity <= ac.traerCantAccion(cliente, company, price)){
+                    if(quantity <= (ac.traerAccion(cliente, company, price)).getQuantity()){
                         quantity = quantity * -1; // YO NO PUEDO CREER LA MARAVILLA QUE ACABO DE HACER EN UNA LINEA.TODO MAL
-                        ac.comprarAccion(cliente, company, price, quantity);
+                        ac.comprarAccion(cliente, company, price, quantity,stopLoss);
                     }else{
                          showMessageDialog(null, "No tiene suficientes acciones para vender.");
                     }
@@ -514,6 +518,12 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         jTextField8.setText(total);
         jComboBox2.setSelectedItem(price);
         jComboBox1.setSelectedItem(transaction);
+        
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField1.setText("");
+        
     }
 
     public static void main(String args[]) {
