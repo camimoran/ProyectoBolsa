@@ -5,6 +5,8 @@
  */
 package models;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author kamii
@@ -13,24 +15,24 @@ public class Accion {
 
     private int id;
     private String company;
-    private float price;
+    private BigDecimal price;
     private int quantity;
     
     public Accion(){
         id = 0;
         company = "";
-        price = 0; // CONVERTIR A BIG DECIMAL.
+        price = new BigDecimal(0); // CONVERTIR A BIG DECIMAL.
         quantity = 0;
     }
     
-    public Accion(int i, String com, float pri, int qua){
+    public Accion(int i, String com, BigDecimal pri, int qua){
         id = i;
         company = com;
         price = pri; // CONVERTIR A BIG DECIMAL.
         quantity = qua;
     }
 
-    public Accion(String company,float price,int quantity){
+    public Accion(String company,BigDecimal price,int quantity){
         this.company = company;
         this.price = price; // CONVERTIR A BIG DECIMAL.
         this.quantity = quantity;
@@ -50,20 +52,6 @@ public class Accion {
         this.company = company;
     }
 
-    /**
-     * @return the price
-     */
-    public float getPrice() {
-        return price;
-    } // CONVERTIR A BIG DECIMAL.
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(float price) {
-        this.price = price;
-    } // CONVERTIR A BIG DECIMAL.
-
     public int getQuantity() {
         return quantity;
     }
@@ -81,6 +69,20 @@ public class Accion {
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * @return the price
+     */
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
 }

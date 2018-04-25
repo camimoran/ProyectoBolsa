@@ -9,11 +9,9 @@ import yahoofinance.Stock;
 //import DAO.Conexion;
 import API.ApiTrader;
 import controlers.AccionsController;
-import controlers.ClientsController;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 import static java.lang.Thread.sleep;
@@ -71,7 +69,6 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         actualizarControles();
         this.setLocationRelativeTo(null);
         setResizable(false);
-        System.out.println("kkkkkkkkkkkkkkkkk111111111111111111111111111111111111111111111");
         miliseconds = 300000; // 300 seg / 5 min
         apiRefresherThread = new Thread(this);
         apiRefresherThread.start();
@@ -94,7 +91,6 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         actualizarControles();
         this.setLocationRelativeTo(null);
         setResizable(false);
-        System.out.println("kkkkkkkkkkkkkkkkk");
         miliseconds = 300000;  // 300 seg / 5 min
         apiRefresherThread = new Thread(this);
         apiRefresherThread.start();
@@ -483,13 +479,17 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
             String transaction = (String)jComboBox1.getSelectedItem();//BUY, SELL
             if(mensajeConfirmacion(transaction, company, price, quantity)){
                 if(transaction.equals("Buy")){
-
-
                     // ACA ES DONDE REDONDEA EL PRECIO DE LAS ACCIONES , CAMBIAR A BIGDECIMAL EL ATRIBUTO PRICE Y HACER QUE LA TABLA LO ACEPTE.
-                   ac.comprarAccion(cliente, company, price.floatValue(),quantity);
+                   ac.comprarAccion(cliente, company, price,quantity);
                 } else if(transaction.equals("Sell")){
-                    quantity = quantity * -1; // YO NO PUEDO CREER LA MARAVILLA QUE ACABO DE HACER EN UNA LINEA.
-                    ac.comprarAccion(cliente, company, price.floatValue(), quantity);
+                    price = new BigDecimal((String.valueOf(jTable2.getModel().getValueAt(jTable2.getSelectedRow(), 1))));
+                    if(quantity <= ac.traerCantAccion(cliente, company, price)){
+                        quantity = quantity * -1; // YO NO PUEDO CREER LA MARAVILLA QUE ACABO DE HACER EN UNA LINEA.TODO MAL
+                        ac.comprarAccion(cliente, company, price, quantity);
+                    }else{
+                         showMessageDialog(null, "No tiene suficientes acciones para vender.");
+                    }
+                        
                 }
             }
             //VACIAR EL FORM = MOSTRAR DATOS VACIOS al comprar o vender?
@@ -590,7 +590,8 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
                 jTable2.getModel().setValueAt(a.getCompany(), fila, 0);
                 jTable2.getModel().setValueAt(a.getPrice(), fila, 1);
                 jTable2.getModel().setValueAt(a.getQuantity(), fila, 2);
-                jTable2.getModel().setValueAt((a.getPrice()* a.getQuantity()) , fila, 3);
+                jTable2.getModel().setValueAt((a.getPrice().multiply(new BigDecimal(a.getQuantity()))) , fila, 3);
+               // jTable2.getModel().setValueAt(a.getCompany() , fila, 3);
                 fila++;
             }
         } catch (Exception e) {

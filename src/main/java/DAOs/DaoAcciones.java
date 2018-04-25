@@ -5,6 +5,7 @@
  */
 package DAOs;
 
+import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +32,33 @@ public class DaoAcciones {
         }
         return con;
     }
-        
+    
+    public int traerCantAccion(String codClient,String company,BigDecimal price){
+        String query = "SELECT quantity FROM Acciones WHERE codClient = ? AND company = ? AND price = ?";
+        System.out.println("DAO"+codClient+company+price);
+                    
+        int qua = 0;
+        Conexion con = getConection();
+        ResultSet result = null;
+         try {
+             PreparedStatement ps = con.conn.prepareStatement(query);
+             ps.setString(1, codClient);
+             ps.setString(2, company);
+             ps.setBigDecimal(3, price);
+             result = ps.executeQuery();
+             while(result.next()){
+                 qua = result.getInt("quantity");
+             }
+             this.delteNoQuantityAccions();
+         } catch (SQLException e) {    
+             System.err.println(e.getMessage());
+         }
+         finally{
+            con.close();
+            return qua; 
+         }
+    } 
+    
     public List<Accion> traerAccionesCliente(String codClient){
         String query = "SELECT * FROM Acciones WHERE codClient = ?";
         List<Accion> lista = new ArrayList<Accion>();
@@ -62,8 +89,8 @@ public class DaoAcciones {
             PreparedStatement ps = con.conn.prepareStatement(query);
             ps.setString(1, codClient);
             ps.setString(2, c.getCompany());
-            ps.setFloat(3,c.getPrice()); // CONVERTIR A BIG DECIMAL.
-            ps.setFloat(4,c.getQuantity());
+            ps.setBigDecimal(3,c.getPrice()); 
+            ps.setInt(4,c.getQuantity());
             ps.executeUpdate();
         }catch (SQLException e){
             System.err.println(e.getMessage());
@@ -91,7 +118,7 @@ public class DaoAcciones {
     private Accion crearConResult(ResultSet result) throws SQLException{
         Accion acc = new Accion(result.getInt("idAccion"), 
                 result.getString("company"),
-                result.getFloat("price"),  // CONVERTIR A BIG DECIMAL.
+                result.getBigDecimal("price"),  // CONVERTIR A BIG DECIMAL.
                 result.getInt("quantity"));
         return acc;
     }

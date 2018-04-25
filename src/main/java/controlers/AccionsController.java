@@ -6,6 +6,7 @@
 package controlers;
 
 import DAOs.DaoAcciones;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import models.Accion;
@@ -18,6 +19,10 @@ import models.Accion;
 public class AccionsController {
     DaoAcciones dao = new DaoAcciones();
        
+    public int traerCantAccion (String codClient,String company,BigDecimal price){
+        return dao.traerCantAccion(codClient, company, price);
+    }
+            
     public List<Accion> traerAccionesCliente(String codCient){
         List<Accion> lista = new ArrayList();
         try {
@@ -26,14 +31,12 @@ public class AccionsController {
             System.out.println(e.getMessage());
         }
         finally{
-            System.out.println("size: " + lista.size());
             return lista;
         }
     }
 
     // AGREGAR ACCION.
-    public void comprarAccion(String codClient, String company, float price, int quantity){
-
+    public void comprarAccion(String codClient, String company, BigDecimal price, int quantity){
         // busca las acciones del cliente
         List<Accion> list = this.traerAccionesCliente(codClient);
         Accion a = new Accion(company,price,quantity);
@@ -52,8 +55,7 @@ public class AccionsController {
     //  si existe retorna la accion con la cantidad actualizada , sino devuelve null
     private Accion searchIfActionExists(List<Accion> clientActions , Accion action){
         for (Accion a: clientActions) {
-            if ((a.getCompany().equals(action.getCompany())) && 
-                    ((a.getPrice() == action.getPrice()) || action.getQuantity()<0 )){
+            if ((a.getCompany().equals(action.getCompany())) && (a.getPrice().equals(action.getPrice())) ){
                 int newQuantity = action.getQuantity() + a.getQuantity();
                 action.setQuantity(newQuantity);
                 action.setId(a.getId());
