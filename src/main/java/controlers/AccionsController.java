@@ -49,15 +49,29 @@ public class AccionsController {
         if(accion == null){
             dao.addAction(a,codClient);            
             if(stopLoss != null){
-                daoOf.addOffer((traerAccion(codClient, company, price)).getId(), null, stopLoss);
+                daoOf.addOffer(traerAccion(codClient, company, price), null, stopLoss);
             }
         }else{
             //SE TIENE QUE AGREGAR A OFERTA CON EL ID DE ACCION,y CANTIDADES, 
             //Y SI ES VENTA QUANT ES NEGATIVO, PERO QUE PASA CON LA TABLA OFERTA ESTA RELACIONADA A LA
             // ACCIONES, QUE YA NO VAN A TENER LAS CANTIDAD QUE SE PONE EN EL TEXT,Y EN LA VENTA NO VA A 
-            // ENCONTRAR L ACCION SI SE VENDIO , CREO QUE HAY QUE PONER LOS DATOS EN LA TABLA OFERTA
-            dao.modifyAction(accion);
-        }
+            // ENCONTRAR L ACCION SI SE VENDIO , CREO QUE HAY QUE PONER LOS DATOS EN LA TABLA OFERTA       
+            //-----------
+            //CUANDO SE COMPRA UNA ACCION QUE YA TENGO CON STOPLOSS TIENE QUE SUMARSE 
+            //A LA TABLA DE STOPLOSS (SI TIENE EL MISMO PRECIO, STOPLOSS,COMPANIA)?    
+            //Y CUANDO SE VENDE UNA ACCION QUE YA TENGO CON STOPLOSS TIENE QUE SUMARSE 
+            //A LA TABLA DE STOPLOSS (SI TIENE EL MISMO PRECIO, STOPLOSS,COMPANIA)?
+            dao.modifyAction(accion);    
+            if(stopLoss != null){
+                if(quantity<0){
+                    accion.setQuantity(quantity*-1);
+                    daoOf.addOffer(accion, stopLoss, null);
+                }else{
+                    accion.setQuantity(quantity);
+                    daoOf.addOffer(accion, null, stopLoss);                    
+                }
+            }
+        }  
     }
 
     // compara la nueva accion para ver si ya existe una de la misma compania y precio en la cartera del cliente.

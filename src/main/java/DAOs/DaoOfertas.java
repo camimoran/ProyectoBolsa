@@ -29,14 +29,32 @@ public class DaoOfertas {
         return con;
     }   
     
-    public void addOffer(int idAccion,BigDecimal expectedBuyPrice,BigDecimal expectedSellPrice) {
-        String query = "INSERT INTO Ofertas(idAccion,expectedBuyPrice,expectedSellPrice) VALUES (?,?,?)";
+    public void addOffer(Accion accion,BigDecimal expectedBuyPrice,BigDecimal expectedSellPrice) {
+        String query = "INSERT INTO Ofertas(idAccion,expectedBuyPrice,expectedSellPrice,company,price,quantity) VALUES (?,?,?,?,?,?)";
         Conexion con = getConection();
         try{
             PreparedStatement ps = con.conn.prepareStatement(query);
-            ps.setInt(1, idAccion);
+            ps.setInt(1, accion.getId());
             ps.setBigDecimal(2, expectedBuyPrice);
             ps.setBigDecimal(3,expectedSellPrice); 
+            ps.setString(4, accion.getCompany());
+            ps.setBigDecimal(5,accion.getPrice()); 
+            ps.setInt(6,accion.getQuantity());
+            ps.executeUpdate();
+        }catch (SQLException e){
+            System.err.println(e.getMessage());
+        }finally{
+            con.close();
+        }
+    }
+    
+    public void modifyOffer(Accion c) {
+        String query = "UPDATE Ofertas SET quantity = ? WHERE idAccion = ?";
+        Conexion con = getConection();
+        try{
+            PreparedStatement ps = con.conn.prepareStatement(query);
+            ps.setInt(1,c.getQuantity());
+            ps.setInt(2,c.getId());
             ps.executeUpdate();
         }catch (SQLException e){
             System.err.println(e.getMessage());
