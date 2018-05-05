@@ -17,10 +17,10 @@ import static java.lang.Thread.sleep;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
 import models.Accion;
-
+ 
 /**
  *
- * @author kamii
+ * @author 
  */
 public class Inicio extends javax.swing.JFrame implements Runnable {
 
@@ -75,9 +75,6 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 
     // CONSTRUCTOR POR PARAMETRO.
     public Inicio(String cli) {
-        //jTextField9.enable();
-        //jTextField11.enable();
-        //jTextField1.enable();
         ac= new AccionsController();
         cliente=cli;
         try {
@@ -89,6 +86,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 
         initComponents(); // GUI INIT
         jTextField10.enable();
+        jTextField10.setText("");
         actualizarControles();
         this.setLocationRelativeTo(null);
         setResizable(false);
@@ -445,7 +443,6 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 
 
     //ONCLICK TABLA CLIENTE
-    //FAlta obtener price de la api
     private void jTable2MouseKeyReleased(java.awt.event.MouseEvent evt) {
         jTable1.getSelectionModel().clearSelection();
         int fila = jTable2.getSelectedRow();
@@ -458,12 +455,16 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 
     // CLICK RELEASED TEXTBOX CANTIDAD
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {
-        String company = jTextField2.getText();
-        int quantity =  Integer.valueOf(((String)jTextField3.getText()).equals("") ? "0" :(String)jTextField3.getText());
-        BigDecimal price = apiTrader.getPriceByCompany(company);
-        jTextField8.setText(String.valueOf(price.multiply(new BigDecimal(quantity))));
+        try {
+            String company = jTextField2.getText();
+            int quantity =  Integer.valueOf(((String)jTextField3.getText()).equals("") ? "0" :(String)jTextField3.getText());
+            BigDecimal price = apiTrader.getPriceByCompany(company);
+            jTextField8.setText(String.valueOf(price.multiply(new BigDecimal(quantity))));
+        } catch (NumberFormatException e) {
+            jTextField3.setText("0");
+        }
+        
     }
-
 
     // BOTON ACEPTAR CLICK EVENTO
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -476,19 +477,22 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
         }
         else{
             BigDecimal price = apiTrader.getPriceByCompany(company);
-            //Todavia no se usa String priceType = (String)jComboBox2.getSelectedItem();//MARKET ,BELOW ,ABOVE
             String transaction = (String)jComboBox1.getSelectedItem();//BUY, SELL
             if(mensajeConfirmacion(transaction, company, price, quantity)){
                 BigDecimal stopLoss = ((String)jTextField10.getText()).equals("") ? null :new BigDecimal((String)jTextField10.getText());
 
                 if(transaction.equals("Buy")){
-                    // ACA ES DONDE REDONDEA EL PRECIO DE LAS ACCIONES , CAMBIAR A BIGDECIMAL EL ATRIBUTO PRICE Y HACER QUE LA TABLA LO ACEPTE.
-                    //QU PASA SI QUIERO VENDER UNA ACCION QUE COMPRE CON STOPLOSS?PUEDO?
-                    ac.comprarAccion(cliente, company, price,quantity,stopLoss);
+                    // CHECK SI TIENE STOPLOSS Y ADVERTIR
+                    if (ac.checkStopLoss(cliente,company,price) && stopLoss != null ){                       
+                         showMessageDialog(null,"No se puede reaizar la compra con stopLoss , ya tiene una accion de la misma compañia con otra oferta. ");
+                    }
+                    else{
+                        ac.comprarAccion(cliente, company, price,quantity,stopLoss); 
+                    }
                 } else if(transaction.equals("Sell")){
                     price = new BigDecimal((String.valueOf(jTable2.getModel().getValueAt(jTable2.getSelectedRow(), 1))));
                     if(quantity <= (ac.traerAccion(cliente, company, price)).getQuantity()){
-                        quantity = quantity * -1; // YO NO PUEDO CREER LA MARAVILLA QUE ACABO DE HACER EN UNA LINEA.TODO MAL
+                        quantity = quantity * -1;
                         ac.comprarAccion(cliente, company, price, quantity,stopLoss);
                     }else{
                          showMessageDialog(null, "No tiene suficientes acciones para vender.");
@@ -496,7 +500,6 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
                         
                 }
             }
-            //VACIAR EL FORM = MOSTRAR DATOS VACIOS al comprar o vender?
             mostrarDatos("","","","Buy","Market");
             actualizarControles();
         }        
@@ -591,6 +594,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
     // SET TABLA CLIENTE
     private void setTablaCliente() {
         try {
+            ac.checkOffers(apiTrader);
             List<Accion> accionesCliente = ac.traerAccionesCliente(cliente);
             jTable2.getTableHeader().setReorderingAllowed(false);
             DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
@@ -649,6 +653,7 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
             try {
                 sleep(miliseconds);
                 System.out.println("REFRESCO");
+               // ac.checkOffers(apiTrader );
                 this.setTablaAPI();
             } catch (InterruptedException e) {
                 e.printStackTrace();

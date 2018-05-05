@@ -17,12 +17,16 @@ public class Accion {
     private String company;
     private BigDecimal price;
     private int quantity;
+    private int idOffer;
+    private String codCliente;
     
     public Accion(){
         id = 0;
         company = "";
         price = new BigDecimal(0); // CONVERTIR A BIG DECIMAL.
         quantity = 0;
+        idOffer = 0;
+        codCliente = "";
     }
     
     public Accion(int i, String com, BigDecimal pri, int qua){
@@ -83,6 +87,34 @@ public class Accion {
      */
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    /**
+     * @return the idOffer
+     */
+    public int getIdOffer() {
+        return idOffer;
+    }
+
+    /**
+     * @param idOffer the idOffer to set
+     */
+    public void setIdOffer(int idOffer) {
+        this.idOffer = idOffer;
+    }
+
+    /**
+     * @return the codCliente
+     */
+    public String getCodCliente() {
+        return codCliente;
+    }
+
+    /**
+     * @param codCliente the codCliente to set
+     */
+    public void setCodCliente(String codCliente) {
+        this.codCliente = codCliente;
     }
 
 }

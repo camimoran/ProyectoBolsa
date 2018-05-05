@@ -17,7 +17,7 @@ import models.Accion;
 
 /**
  *
- * @author kamii
+ * @author 
  */
 public class DaoAcciones {
     
@@ -35,8 +35,6 @@ public class DaoAcciones {
     
     public Accion traerAccion(String codClient,String company,BigDecimal price){
         String query = "SELECT * FROM Acciones WHERE codClient = ? AND company = ? AND price = ?";
-        System.out.println("DAO"+codClient+company+price);
-                    
         Accion a = new Accion();
         Conexion con = getConection();
         ResultSet result = null;
